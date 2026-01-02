@@ -12,7 +12,7 @@ class TaskService {
   }
 
   async createTask(taskData) {
-    const response = await fetch(`${API_BASE_URL}/tasks`, {
+    const response = await fetch(`${API_BASE_URL}/api/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +31,7 @@ class TaskService {
   }
 
   async deleteTask(taskId) {
-    const response = await fetch(`${API_BASE_URL}/tasks/${taskId}`, {
+    const response = await fetch(`${API_BASE_URL}/api/tasks/${taskId}`, {
       method: "DELETE",
     });
 
