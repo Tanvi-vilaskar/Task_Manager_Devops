@@ -1,7 +1,7 @@
-const Task = require('../models/Task');
+import Task from '../models/Task.js';
 
 // Get all tasks
-const getAllTasks = async (req, res) => {
+export const getAllTasks = async (req, res) => {
   try {
     const tasks = await Task.find().sort({ createdAt: -1 });
     res.status(200).json({
@@ -19,7 +19,7 @@ const getAllTasks = async (req, res) => {
 };
 
 // Create a new task
-const createTask = async (req, res) => {
+export const createTask = async (req, res) => {
   try {
     const { title, description } = req.body;
 
@@ -60,7 +60,7 @@ const createTask = async (req, res) => {
 };
 
 // Delete a task
-const deleteTask = async (req, res) => {
+export const deleteTask = async (req, res) => {
   try {
     const { id } = req.params;
 
@@ -84,10 +84,4 @@ const deleteTask = async (req, res) => {
       message: 'Failed to delete task',
     });
   }
-};
-
-module.exports = {
-  getAllTasks,
-  createTask,
-  deleteTask,
 };
